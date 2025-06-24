@@ -7,27 +7,11 @@
   <!-- Import Tailwind CSS từ CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<script>
-  // Gắn sự kiện click vào từng card
-  document.querySelectorAll('.plan-card').forEach(card => {
-    card.addEventListener('click', function (event) {
-      // Không toggle nếu click vào nút Order Now
-      if (event.target.closest('a')) return;
-
-      const targetId = this.getAttribute('data-plan');
-      const details = document.getElementById(targetId);
-      if (details) {
-        details.classList.toggle('hidden');
-      }
-    });
-  });
-</script>
-
 <body class="font-sans antialiased text-gray-800 bg-gray-100">
   <!-- Header -->
   <header class="bg-blue-600 text-white py-4">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-      <div class="text-2xl font-bold flex items-center gap-2">
+      <div class="px-20 text-2xl font-bold flex items-center gap-2">
         <span>HostingGuard</span>
       </div>
       <nav>
@@ -44,7 +28,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white py-20 overflow-hidden">
+  <section class="p-20 relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white py-20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
       <!-- Left: Text -->
       <div class="flex-1 flex flex-col items-start justify-center z-10">
@@ -104,7 +88,7 @@
             </div>
             <div class="plan-detail hidden px-6 pb-4">
               <div class="border border-dashed rounded-lg p-4 flex flex-col md:flex-row gap-4">
-                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                <div class="flex-1 grid grid-cols-3 gap-2 text-sm plan-detail-content">
                   <div><span class="text-blue-600 font-bold">4 TB</span> Băng thông</div>
                   <div><span class="text-blue-600 font-bold">99.99%</span> Cam kết uptime</div>
                   <div><span class="text-blue-600 font-bold">Miễn phí</span> cPanel/WHM</div>
@@ -277,54 +261,8 @@
       </div>
     </div>
   </footer>
+  <script src="main.js"></script>
 </body>
-<script>
-  // Accordion logic for plan cards + animation
-  document.addEventListener('DOMContentLoaded', function () {
-    const planCards = document.querySelectorAll('.plan-card');
-    planCards.forEach((card, idx) => {
-      card.addEventListener('click', function (e) {
-        if (e.target.tagName === 'BUTTON') return;
-        planCards.forEach((c, i) => {
-          const detail = c.querySelector('.plan-detail');
-          const icon = c.querySelector('.toggle-icon');
-          if (c === card) {
-            const isOpen = detail.classList.contains('open');
-            detail.classList.toggle('open', !isOpen);
-            detail.classList.toggle('hidden', isOpen);
-            icon.textContent = isOpen ? '+' : '–';
-          } else {
-            detail.classList.remove('open');
-            detail.classList.add('hidden');
-            if (icon) icon.textContent = '+';
-          }
-        });
-      });
-    });
-    // Mặc định mở Cloud-02
-    planCards.forEach((c, i) => {
-      const detail = c.querySelector('.plan-detail');
-      const icon = c.querySelector('.toggle-icon');
-      if (i === 1) {
-        detail.classList.add('open');
-        detail.classList.remove('hidden');
-        icon.textContent = '–';
-      } else {
-        detail.classList.remove('open');
-        detail.classList.add('hidden');
-        icon.textContent = '+';
-      }
-    });
-    // Scroll to plans when click 'Xem tất cả gói'
-    const btnScroll = document.querySelector('a[href="#plans"]');
-    if (btnScroll) {
-      btnScroll.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-  });
-</script>
 <style>
   .btn-animated .arrow {
     transition: transform 0.3s cubic-bezier(.4,2,.6,1);
@@ -350,6 +288,32 @@
     max-height: 500px;
     opacity: 1;
     transition: max-height 0.7s cubic-bezier(.4,2,.6,1), opacity 0.5s;
+  }
+  .plan-detail.plan-animate-open, .plan-card.plan-animate-card-open {
+    animation: planOpenAnim 0.5s cubic-bezier(.4,2,.6,1);
+  }
+  .plan-detail.plan-animate-close, .plan-card.plan-animate-card-close {
+    animation: planCloseAnim 0.4s cubic-bezier(.4,2,.6,1);
+  }
+  @keyframes planOpenAnim {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scaleY(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes planCloseAnim {
+    0% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(30px) scaleY(0.95);
+    }
   }
   .plan-fadein {
     opacity: 0;
