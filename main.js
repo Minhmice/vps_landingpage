@@ -1,64 +1,65 @@
 // main.js
-// Accordion logic for plan cards + animation
+// Accordion logic for plan cards + animation (rewrite)
 document.addEventListener('DOMContentLoaded', function () {
   const planCards = document.querySelectorAll('.plan-card');
+
+  // Đóng tất cả card, chỉ mở card thứ 2 mặc định
   planCards.forEach((card, idx) => {
+    const detail = card.querySelector('.plan-detail');
+    const icon = card.querySelector('.toggle-icon');
+    if (idx === 1) {
+      detail.classList.add('open');
+      icon.textContent = '–';
+    } else {
+      detail.classList.remove('open');
+      icon.textContent = '+';
+    }
+  });
+
+  planCards.forEach((card) => {
     card.addEventListener('click', function (e) {
       if (e.target.tagName === 'BUTTON') return;
       const detail = card.querySelector('.plan-detail');
       const icon = card.querySelector('.toggle-icon');
-      const wasOpen = detail.classList.contains('open');
-      if (!wasOpen) {
-        // Đóng tất cả card khác trước khi mở card này
+      const isOpen = detail.classList.contains('open');
+      if (isOpen) {
+        // Đóng lại nếu đang mở, thêm animation
+        detail.classList.remove('open');
+        detail.classList.add('plan-animate-close');
+        icon.textContent = '+';
+        detail.addEventListener('animationend', function handleClose() {
+          detail.classList.remove('plan-animate-close');
+          detail.removeEventListener('animationend', handleClose);
+        });
+      } else {
+        // Đóng tất cả card khác
         planCards.forEach((other) => {
-          if (other !== card) {
-            const otherDetail = other.querySelector('.plan-detail');
-            const otherIcon = other.querySelector('.toggle-icon');
-            otherDetail.classList.remove('open', 'plan-animate-open', 'plan-animate-close');
-            otherDetail.classList.add('hidden');
-            other.classList.remove('plan-animate-card-open', 'plan-animate-card-close');
-            if (otherIcon) otherIcon.textContent = '+';
+          const otherDetail = other.querySelector('.plan-detail');
+          const otherIcon = other.querySelector('.toggle-icon');
+          if (otherDetail.classList.contains('open')) {
+            otherDetail.classList.remove('open');
+            otherDetail.classList.add('plan-animate-close');
+            otherIcon.textContent = '+';
+            otherDetail.addEventListener('animationend', function handleClose() {
+              otherDetail.classList.remove('plan-animate-close');
+              otherDetail.removeEventListener('animationend', handleClose);
+            });
+          } else {
+            otherDetail.classList.remove('plan-animate-open', 'plan-animate-close');
+            otherIcon.textContent = '+';
           }
         });
-        // Mở card này với animation
-        detail.classList.remove('plan-animate-close', 'hidden');
-        card.classList.remove('plan-animate-card-close');
-        detail.classList.add('plan-animate-open', 'open');
-        card.classList.add('plan-animate-card-open');
+        // Mở card này, thêm animation
+        detail.classList.add('open', 'plan-animate-open');
         icon.textContent = '–';
-        setTimeout(() => {
+        detail.addEventListener('animationend', function handleOpen() {
           detail.classList.remove('plan-animate-open');
-          card.classList.remove('plan-animate-card-open');
-        }, 500);
-      } else {
-        // Đóng card này với animation
-        detail.classList.remove('plan-animate-open');
-        card.classList.remove('plan-animate-card-open');
-        detail.classList.add('plan-animate-close');
-        card.classList.add('plan-animate-card-close');
-        icon.textContent = '+';
-        setTimeout(() => {
-          detail.classList.remove('plan-animate-close', 'open');
-          card.classList.remove('plan-animate-card-close');
-          detail.classList.add('hidden');
-        }, 400);
+          detail.removeEventListener('animationend', handleOpen);
+        });
       }
     });
   });
-  // Mặc định mở Cloud-02
-  planCards.forEach((c, i) => {
-    const detail = c.querySelector('.plan-detail');
-    const icon = c.querySelector('.toggle-icon');
-    if (i === 1) {
-      detail.classList.add('open');
-      detail.classList.remove('hidden');
-      icon.textContent = '–';
-    } else {
-      detail.classList.remove('open');
-      detail.classList.add('hidden');
-      icon.textContent = '+';
-    }
-  });
+
   // Scroll to plans when click 'Xem tất cả gói'
   const btnScroll = document.querySelector('a[href="#plans"]');
   if (btnScroll) {
