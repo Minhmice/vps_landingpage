@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HostingGuard - Cloud Server Solutions</title>
+  <!-- Import Tailwind CSS từ CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<script>
+  // Gắn sự kiện click vào từng card
+  document.querySelectorAll('.plan-card').forEach(card => {
+    card.addEventListener('click', function (event) {
+      // Không toggle nếu click vào nút Order Now
+      if (event.target.closest('a')) return;
+
+      const targetId = this.getAttribute('data-plan');
+      const details = document.getElementById(targetId);
+      if (details) {
+        details.classList.toggle('hidden');
+      }
+    });
+  });
+</script>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div class="text-2xl font-bold flex items-center gap-2">
+        <span>HostingGuard</span>
+      </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#" class="hover:text-gray-300">Trang chủ</a></li>
+          <li><a href="#" class="hover:text-gray-300">Tính năng</a></li>
+          <li><a href="#" class="hover:text-gray-300">Bảng giá</a></li>
+          <li><a href="#" class="hover:text-gray-300">Về chúng tôi</a></li>
+          <li><a href="#" class="hover:text-gray-300">Liên hệ</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="btn-animated bg-green-400 px-4 py-2 rounded hover:bg-green-500 text-blue-900 font-semibold flex items-center gap-2 transition">Bắt đầu ngay <span class="arrow inline-block transition-transform">→</span></a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+      <!-- Left: Text -->
+      <div class="flex-1 flex flex-col items-start justify-center z-10">
+        <span class="inline-block bg-green-500/20 text-green-200 text-sm px-4 py-1 rounded-full mb-4">Hosting WordPress Giảm đến 75%</span>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight text-left animate-hero-title">
+          Giải pháp <br><span class="text-green-300 text-5xl md:text-7xl">Cloud Server</span><br />Nhanh &amp; An Toàn
+        </h1>
+        <p class="text-lg md:text-2xl mb-8 max-w-xl text-left animate-hero-title">
+          Trải nghiệm cách mới để xây dựng, triển khai và quản lý WordPress hiệu quả trên một bảng điều khiển mạnh mẽ.
+        </p>
+        <div class="flex gap-4 animate-hero-btns">
+          <a href="#" class="btn-animated bg-green-400 hover:bg-green-500 text-blue-900 font-semibold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg transition">
+            Bắt đầu ngay <span class="arrow inline-block transition-transform">→</span>
+          </a>
+          <a href="#plans" class="btn-animated bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-full flex items-center gap-2 border border-white/20 transition">
+            Xem tất cả gói <span class="arrow inline-block transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+      <!-- Right: Image -->
+      <div class="flex-1 flex justify-center items-center relative mt-10 md:mt-0">
+        <div class="relative w-[350px] h-[350px] md:w-[420px] md:h-[420px] flex items-center justify-center">
+          <img src="anh_landing_page.jpg" alt="Hình ảnh landing page" class="object-cover w-full h-full z-10 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] shadow-2xl border-4 border-white/10 animate-img-fadein" style="aspect-ratio:1/1;" />
+          <div class="absolute inset-0 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] ring-4 ring-blue-400/30 pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block z-0">
+      <svg width="100%" height="100%" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="400" cy="300" rx="300" ry="250" fill="#2563eb" fill-opacity="0.25"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Plan Cards (Server Section) -->
+  <section id="plans" class="py-16 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-10 items-start">
+      <div class="flex-1">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-10 animate-img-fadein">
+          100% <span class="text-green-600">Máy chủ xanh <br></span> phù hợp cho bạn
+        </h2>
+        <div class="space-y-4 animate-plan-list" id="plan-list">
+          <!-- Cloud-01 -->
+          <div class="plan-card bg-white rounded-lg shadow flex flex-col cursor-pointer plan-fadein" data-plan="1">
+            <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+              <div class="flex items-center w-full md:w-auto">
+                <span class="toggle-icon text-2xl mr-3">+</span>
+                <span class="font-semibold">Cloud–01</span>
+              </div>
+              <div class="flex-1 flex justify-between md:justify-end items-center w-full md:w-auto gap-6 md:gap-10 mt-2 md:mt-0">
+                <span class="font-semibold">2 CPU</span>
+                <span><span class="font-semibold">4GB</span> RAM</span>
+                <span><span class="font-semibold">80 GB</span> NVMe</span>
+                <span class="text-blue-600 font-bold">Chỉ từ: <span class="text-xl">$32/tháng</span></span>
+                <button class="btn-animated bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 flex items-center gap-2">Đặt mua <span class="arrow inline-block transition-transform">→</span></button>
+              </div>
+            </div>
+            <div class="plan-detail hidden px-6 pb-4">
+              <div class="border border-dashed rounded-lg p-4 flex flex-col md:flex-row gap-4">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                  <div><span class="text-blue-600 font-bold">4 TB</span> Băng thông</div>
+                  <div><span class="text-blue-600 font-bold">99.99%</span> Cam kết uptime</div>
+                  <div><span class="text-blue-600 font-bold">Miễn phí</span> cPanel/WHM</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> di chuyển website</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> 24/7</div>
+                  <div><span class="text-blue-600 font-bold">IP</span> Riêng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Cloud-02 -->
+          <div class="plan-card bg-white rounded-lg shadow flex flex-col cursor-pointer plan-fadein" data-plan="2">
+            <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+              <div class="flex items-center w-full md:w-auto">
+                <span class="toggle-icon text-2xl mr-3">–</span>
+                <span class="font-semibold">Cloud–02</span>
+              </div>
+              <div class="flex-1 flex justify-between md:justify-end items-center w-full md:w-auto gap-6 md:gap-10 mt-2 md:mt-0">
+                <span class="font-semibold">2 CPU</span>
+                <span><span class="font-semibold">4GB</span> RAM</span>
+                <span><span class="font-semibold">80 GB</span> NVMe</span>
+                <span class="text-blue-600 font-bold">Chỉ từ: <span class="text-xl">$32/tháng</span></span>
+                <button class="btn-animated bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 flex items-center gap-2">Đặt mua <span class="arrow inline-block transition-transform">→</span></button>
+              </div>
+            </div>
+            <div class="plan-detail px-6 pb-4">
+              <div class="border border-dashed rounded-lg p-4 flex flex-col md:flex-row gap-4">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                  <div><span class="text-blue-600 font-bold">4 TB</span> Băng thông</div>
+                  <div><span class="text-blue-600 font-bold">99.99%</span> Cam kết uptime</div>
+                  <div><span class="text-blue-600 font-bold">Miễn phí</span> cPanel/WHM</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> di chuyển website</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> 24/7</div>
+                  <div><span class="text-blue-600 font-bold">IP</span> Riêng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Cloud-03 -->
+          <div class="plan-card bg-white rounded-lg shadow flex flex-col cursor-pointer plan-fadein" data-plan="3">
+            <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+              <div class="flex items-center w-full md:w-auto">
+                <span class="toggle-icon text-2xl mr-3">+</span>
+                <span class="font-semibold">Cloud–03</span>
+              </div>
+              <div class="flex-1 flex justify-between md:justify-end items-center w-full md:w-auto gap-6 md:gap-10 mt-2 md:mt-0">
+                <span class="font-semibold">2 CPU</span>
+                <span><span class="font-semibold">4GB</span> RAM</span>
+                <span><span class="font-semibold">80 GB</span> NVMe</span>
+                <span class="text-blue-600 font-bold">Chỉ từ: <span class="text-xl">$32/tháng</span></span>
+                <button class="btn-animated bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 flex items-center gap-2">Đặt mua <span class="arrow inline-block transition-transform">→</span></button>
+              </div>
+            </div>
+            <div class="plan-detail hidden px-6 pb-4">
+              <div class="border border-dashed rounded-lg p-4 flex flex-col md:flex-row gap-4">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                  <div><span class="text-blue-600 font-bold">4 TB</span> Băng thông</div>
+                  <div><span class="text-blue-600 font-bold">99.99%</span> Cam kết uptime</div>
+                  <div><span class="text-blue-600 font-bold">Miễn phí</span> cPanel/WHM</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> di chuyển website</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> 24/7</div>
+                  <div><span class="text-blue-600 font-bold">IP</span> Riêng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Cloud-04 -->
+          <div class="plan-card bg-white rounded-lg shadow flex flex-col cursor-pointer plan-fadein" data-plan="4">
+            <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+              <div class="flex items-center w-full md:w-auto">
+                <span class="toggle-icon text-2xl mr-3">+</span>
+                <span class="font-semibold">Cloud–04</span>
+              </div>
+              <div class="flex-1 flex justify-between md:justify-end items-center w-full md:w-auto gap-6 md:gap-10 mt-2 md:mt-0">
+                <span class="font-semibold">2 CPU</span>
+                <span><span class="font-semibold">4GB</span> RAM</span>
+                <span><span class="font-semibold">80 GB</span> NVMe</span>
+                <span class="text-blue-600 font-bold">Chỉ từ: <span class="text-xl">$32/tháng</span></span>
+                <button class="btn-animated bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 flex items-center gap-2">Đặt mua <span class="arrow inline-block transition-transform">→</span></button>
+              </div>
+            </div>
+            <div class="plan-detail hidden px-6 pb-4">
+              <div class="border border-dashed rounded-lg p-4 flex flex-col md:flex-row gap-4">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                  <div><span class="text-blue-600 font-bold">4 TB</span> Băng thông</div>
+                  <div><span class="text-blue-600 font-bold">99.99%</span> Cam kết uptime</div>
+                  <div><span class="text-blue-600 font-bold">Miễn phí</span> cPanel/WHM</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> di chuyển website</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> 24/7</div>
+                  <div><span class="text-blue-600 font-bold">IP</span> Riêng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Cloud-05 -->
+          <div class="plan-card bg-white rounded-lg shadow flex flex-col cursor-pointer plan-fadein" data-plan="5">
+            <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+              <div class="flex items-center w-full md:w-auto">
+                <span class="toggle-icon text-2xl mr-3">+</span>
+                <span class="font-semibold">Cloud–05</span>
+              </div>
+              <div class="flex-1 flex justify-between md:justify-end items-center w-full md:w-auto gap-6 md:gap-10 mt-2 md:mt-0">
+                <span class="font-semibold">2 CPU</span>
+                <span><span class="font-semibold">4GB</span> RAM</span>
+                <span><span class="font-semibold">80 GB</span> NVMe</span>
+                <span class="text-blue-600 font-bold">Chỉ từ: <span class="text-xl">$32/tháng</span></span>
+                <button class="btn-animated bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 flex items-center gap-2">Đặt mua <span class="arrow inline-block transition-transform">→</span></button>
+              </div>
+            </div>
+            <div class="plan-detail hidden px-6 pb-4">
+              <div class="border border-dashed rounded-lg p-4 flex flex-col md:flex-row gap-4">
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                  <div><span class="text-blue-600 font-bold">4 TB</span> Băng thông</div>
+                  <div><span class="text-blue-600 font-bold">99.99%</span> Cam kết uptime</div>
+                  <div><span class="text-blue-600 font-bold">Miễn phí</span> cPanel/WHM</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> di chuyển website</div>
+                  <div><span class="text-blue-600 font-bold">Hỗ trợ</span> 24/7</div>
+                  <div><span class="text-blue-600 font-bold">IP</span> Riêng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-sm text-gray-500 mt-6">
+          Cần hỗ trợ? Xem <a href="#" class="text-blue-600 underline">So sánh đầy đủ các gói</a> hoặc <a href="#" class="text-green-600 underline">Liên hệ chuyên gia Hosting</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-wrap justify-between">
+        <div class="w-full sm:w-auto mb-6">
+          <h3 class="font-bold mb-2">Sản phẩm &amp; Giải pháp</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-300">Cloud Server</a></li>
+            <li><a href="#" class="hover:text-gray-300">Máy chủ riêng</a></li>
+            <li><a href="#" class="hover:text-gray-300">VPS</a></li>
+          </ul>
+        </div>
+        <div class="w-full sm:w-auto mb-6">
+          <h3 class="font-bold mb-2">Thông tin công ty</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-300">Về chúng tôi</a></li>
+            <li><a href="#" class="hover:text-gray-300">Tuyển dụng</a></li>
+            <li><a href="#" class="hover:text-gray-300">Tin tức</a></li>
+          </ul>
+        </div>
+        <div class="w-full sm:w-auto mb-6">
+          <h3 class="font-bold mb-2">Hỗ trợ &amp; Dịch vụ</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-300">Câu hỏi thường gặp</a></li>
+            <li><a href="#" class="hover:text-gray-300">Tài liệu hướng dẫn</a></li>
+            <li><a href="#" class="hover:text-gray-300">Cộng đồng</a></li>
+          </ul>
+        </div>
+        <div class="w-full sm:w-auto">
+          <h3 class="font-bold mb-2">Kết nối với chúng tôi</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-gray-300">Facebook</a>
+            <a href="#" class="hover:text-gray-300">Twitter</a>
+            <a href="#" class="hover:text-gray-300">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+        &copy; 2025 HostingGuard. Đã đăng ký bản quyền.
+      </div>
+    </div>
+  </footer>
+</body>
+<script>
+  // Accordion logic for plan cards + animation
+  document.addEventListener('DOMContentLoaded', function () {
+    const planCards = document.querySelectorAll('.plan-card');
+    planCards.forEach((card, idx) => {
+      card.addEventListener('click', function (e) {
+        if (e.target.tagName === 'BUTTON') return;
+        planCards.forEach((c, i) => {
+          const detail = c.querySelector('.plan-detail');
+          const icon = c.querySelector('.toggle-icon');
+          if (c === card) {
+            const isOpen = detail.classList.contains('open');
+            detail.classList.toggle('open', !isOpen);
+            detail.classList.toggle('hidden', isOpen);
+            icon.textContent = isOpen ? '+' : '–';
+          } else {
+            detail.classList.remove('open');
+            detail.classList.add('hidden');
+            if (icon) icon.textContent = '+';
+          }
+        });
+      });
+    });
+    // Mặc định mở Cloud-02
+    planCards.forEach((c, i) => {
+      const detail = c.querySelector('.plan-detail');
+      const icon = c.querySelector('.toggle-icon');
+      if (i === 1) {
+        detail.classList.add('open');
+        detail.classList.remove('hidden');
+        icon.textContent = '–';
+      } else {
+        detail.classList.remove('open');
+        detail.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    });
+    // Scroll to plans when click 'Xem tất cả gói'
+    const btnScroll = document.querySelector('a[href="#plans"]');
+    if (btnScroll) {
+      btnScroll.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+<style>
+  .btn-animated .arrow {
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+    display: inline-block;
+  }
+  .btn-animated:hover .arrow {
+    transform: translateX(8px) scale(1.2);
+  }
+  .btn-animated {
+    transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  }
+  .btn-animated:hover {
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+  }
+  .plan-detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.4,2,.6,1), opacity 0.4s;
+  }
+  .plan-card .plan-detail.open {
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 0.7s cubic-bezier(.4,2,.6,1), opacity 0.5s;
+  }
+  .plan-fadein {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: planFadeIn 0.8s cubic-bezier(.4,2,.6,1) forwards;
+  }
+  .plan-fadein:nth-child(1) { animation-delay: 0.1s; }
+  .plan-fadein:nth-child(2) { animation-delay: 0.2s; }
+  .plan-fadein:nth-child(3) { animation-delay: 0.3s; }
+  .plan-fadein:nth-child(4) { animation-delay: 0.4s; }
+  .plan-fadein:nth-child(5) { animation-delay: 0.5s; }
+  @keyframes planFadeIn {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .animate-img-fadein {
+    opacity: 0;
+    animation: imgFadeIn 1.2s 0.5s cubic-bezier(.4,2,.6,1) forwards;
+  }
+  @keyframes imgFadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  .rounded-oval {
+    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+  }
+  .animate-hero-title {
+    opacity: 0;
+    transform: translateX(-60px);
+    animation: heroTitleIn 0.9s 0.1s cubic-bezier(.4,2,.6,1) forwards;
+  }
+  @keyframes heroTitleIn {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .animate-hero-btns {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: heroBtnsIn 0.8s 0.5s cubic-bezier(.4,2,.6,1) forwards;
+  }
+  @keyframes heroBtnsIn {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+</html>
