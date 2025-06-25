@@ -1,4 +1,3 @@
-// components/Header.tsx
 import React from 'react';
 
 const Header = () => {
@@ -9,18 +8,17 @@ const Header = () => {
           <span>HostingGuard</span>
         </div>
         <nav>
-          <ul className="flex space-x-6">
-            <li><a href="#" className="hover:text-gray-300 transition-all duration-300">Trang chủ</a></li>
-            <li><a href="#" className="hover:text-gray-300 transition-all duration-300">Tính năng</a></li>
-            <li><a href="#" className="hover:text-gray-300 transition-all duration-300">Bảng giá</a></li>
-            <li><a href="#" className="hover:text-gray-300 transition-all duration-300">Về chúng tôi</a></li>
-            <li><a href="#" className="hover:text-gray-300 transition-all duration-300">Liên hệ</a></li>
+          <ul className="flex space-x-20 text-lg font-semibold ">
+            <li><a href="#" className="hover:text-gray-300">VPS n8n</a></li>
+            <li><a href="#" className="hover:text-gray-300">Tính năng</a></li>
+            <li><a href="#" className="hover:text-gray-300">Bảng giá</a></li>
+            <li><a href="#" className="hover:text-gray-300">Blog</a></li>
           </ul>
         </nav>
-        <a href="#"
-          className="btn-animated flex items-center gap-2 rounded bg-green-400 px-4 py-2 font-semibold text-blue-900 transition-all hover:bg-green-500 transform hover:scale-105 duration-300">Bắt
-          đầu ngay
-          <span className="arrow inline-block transition-transform">→</span></a>
+        <a href="#" className="btn-animated flex items-center gap-2 rounded bg-green-400 px-4 py-2 font-semibold text-blue-900 transition hover:bg-green-500">
+          Bắt đầu ngay
+          <span className="arrow inline-block transition-transform">→</span>
+        </a>
       </div>
     </header>
   );
