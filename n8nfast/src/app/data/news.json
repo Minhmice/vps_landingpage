@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "image": "/images/news1.jpg",
+    "logo": "/images/trustpilot-logo.png",
+    "title": "Best Hosting service Company",
+    "review": "The best thing we love about Hostcity is it does two-way sync with Google Apps. It has helped us to better organize.",
+    "link": "/news/1",
+    "rate": 4
+  },
+  {
+    "id": 2,
+    "image": "/images/news2.jpg",
+    "logo": "/images/google-logo.png",
+    "title": "The Most Creative Designer, Highly Recommended.",
+    "review": "The best thing we love about Hostcity is it does two-way sync with Google Apps. It has helped us keep everything on track.",
+    "link": "/news/2",
+    "rate": 5
+  },
+  {
+    "id": 3,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/3",
+    "rate": 3
+  },
+  {
+    "id": 4,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/4",
+    "rate": 2
+  },
+  {
+    "id": 5,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/5",
+    "rate": 5
+  },
+  {
+    "id": 6,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/6",
+    "rate": 1
+  },
+  {
+    "id": 7,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/7",
+    "rate": 4
+  },
+  {
+    "id": 8,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/8",
+    "rate": 5
+  },
+  {
+    "id": 9,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/9",
+    "rate": 3
+  },
+  {
+    "id": 10,
+    "image": "/images/news3.jpg",
+    "logo": "/images/hosttest-logo.png",
+    "title": "Exceptional Customer Support & Uptime",
+    "review": "Hostcity’s support team is always there when I need them. Plus, my site has never gone down once in the past year!",
+    "link": "/news/10",
+    "rate": 2
+  }
+]

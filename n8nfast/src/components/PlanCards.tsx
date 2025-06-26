@@ -1,6 +1,6 @@
 'use client';  // <-- Add this line at the top to mark this file as a Client Component
 
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
 
 const PlanCards = () => {
@@ -21,7 +21,6 @@ const PlanCards = () => {
         'Công cụ hỗ trợ như Milvus, Attu, Redis',
         'Hỗ trợ khách hàng 24/7',
       ],
-      isBestChoice: false,
     },
     {
       title: 'Pro',
@@ -37,7 +36,6 @@ const PlanCards = () => {
         'Công cụ tích hợp giúp tối ưu hóa quy trình',
         'Hỗ trợ ưu tiên 24/7',
       ],
-      isBestChoice: true,
     },
     {
       title: 'Business',
@@ -53,13 +51,14 @@ const PlanCards = () => {
         '100+ mẫu tự động hóa',
         'Bảo mật cao, sao lưu tự động',
       ],
-      isBestChoice: false,
     },
     // Các gói khác có thể thêm vào đây
   ];
 
-  const handleCardClick = (planTitle: string) => {
-    console.log(`Bạn đã chọn gói ${planTitle}`);
+  const [openIndex, setOpenIndex] = useState(1); // Mặc định mở card thứ 2
+
+  const handleCardClick = (idx: number) => {
+    setOpenIndex((prev) => (prev === idx ? -1 : idx));
   };
 
   return (
@@ -81,8 +80,9 @@ const PlanCards = () => {
                 priceWeekly={plan.priceWeekly}
                 priceMonthly={plan.priceMonthly}
                 features={plan.features}
-                onClick={() => handleCardClick(plan.title)}
-                isBestChoice={plan.isBestChoice}
+                isOpen={openIndex === index}
+                onToggle={() => handleCardClick(index)}
+                onClick={() => {}}
               />
             ))}
           </div>
