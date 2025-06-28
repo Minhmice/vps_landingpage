@@ -1,0 +1,108 @@
+[
+  {
+    "title": "🟢 Starter",
+    "rated": "",
+    "cpu": "2 cores",
+    "ram": "2 GB",
+    "storage": "20 GB",
+    "bandwidth": "Unlimited",
+    "backup": "Mỗi 3 ngày",
+    "original_price_month": 123750,
+    "discount_price_month": 79000,
+    "discount_price_week": 29000,
+    "discount_price_3months": 249000,
+    "discount_price_6months": 474000,
+    "discount_price_12months": 888000,
+    "features": [
+      "Tối ưu hóa hiệu suất cao nhất",
+      "Bảo mật và sao lưu dữ liệu tự động",
+      "Hỗ trợ kỹ thuật 24/7",
+      "Tích hợp AI và tự động hóa nâng cao"
+    ]
+  },
+  {
+    "title": "⚡ Pro",
+    "rated": "Best Seller",
+    "cpu": "2 cores",
+    "ram": "4 GB",
+    "storage": "20 GB",
+    "bandwidth": "Unlimited",
+    "backup": "Mỗi 3 ngày",
+    "original_price_month": 248750,
+    "discount_price_month": 199000,
+    "discount_price_week": 69000,
+    "discount_price_3months": 498000,
+    "discount_price_6months": 948000,
+    "discount_price_12months": 1788000,
+    "features": [
+      "Tối ưu hóa hiệu suất cao nhất",
+      "Bảo mật và sao lưu dữ liệu tự động",
+      "Hỗ trợ kỹ thuật 24/7",
+      "Tích hợp AI và tự động hóa nâng cao"
+    ]
+  },
+  {
+    "title": "🔵 Business",
+    "rated": "",
+    "cpu": "4 cores",
+    "ram": "8 GB",
+    "storage": "50 GB",
+    "bandwidth": "Unlimited",
+    "backup": "Mỗi 3 ngày",
+    "original_price_month": 498750,
+    "discount_price_month": 399000,
+    "discount_price_week": 139000,
+    "discount_price_3months": 999000,
+    "discount_price_6months": 1908000,
+    "discount_price_12months": 3600000,
+    "features": [
+      "Tối ưu hóa hiệu suất cao nhất",
+      "Bảo mật và sao lưu dữ liệu tự động",
+      "Hỗ trợ kỹ thuật 24/7",
+      "Tích hợp AI và tự động hóa nâng cao"
+    ]
+  },
+  {
+    "title": "🟣Advanced",
+    "rated": "",
+
+    "cpu": "4 cores",
+    "ram": "16 GB",
+    "storage": "50 GB",
+    "bandwidth": "Unlimited",
+    "backup": "Mỗi 3 ngày",
+    "original_price_month": 873750,
+    "discount_price_month": 699000,
+    "discount_price_week": 233000,
+    "discount_price_3months": 1767000,
+    "discount_price_6months": 3342000,
+    "discount_price_12months": 6288000,
+    "features": [
+      "Tối ưu hóa hiệu suất cao nhất",
+      "Bảo mật và sao lưu dữ liệu tự động",
+      "Hỗ trợ kỹ thuật 24/7",
+      "Tích hợp AI và tự động hóa nâng cao"
+    ]
+  },
+  {
+    "title": "🔴 Ultimate",
+    "rated": "",
+    "cpu": "6 cores",
+    "ram": "24 GB",
+    "storage": "50 GB",
+    "bandwidth": "Unlimited",
+    "backup": "Mỗi 3 ngày",
+    "original_price_month": 1248750,
+    "discount_price_month": 999000,
+    "discount_price_week": 333000,
+    "discount_price_3months": 2517000,
+    "discount_price_6months": 4776000,
+    "discount_price_12months": 9000000,
+    "features": [
+      "Tối ưu hóa hiệu suất cao nhất",
+      "Bảo mật và sao lưu dữ liệu tự động",
+      "Hỗ trợ kỹ thuật 24/7",
+      "Tích hợp AI và tự động hóa nâng cao"
+    ]
+  }
+]
